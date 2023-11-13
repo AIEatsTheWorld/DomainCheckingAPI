@@ -9,6 +9,7 @@ const GODADDY_API_KEY = process.env.GODADDY_API_KEY;
 const GODADDY_API_SECRET = process.env.GODADDY_API_SECRET;
 
 app.post("/check-domains", async (req, res) => {
+  console.log("Request body:", req);
   const domains = req.body.domains;
   if (!Array.isArray(domains) || !domains.every((domain) => typeof domain === "string")) {
     return res.status(400).send("Invalid input format");
